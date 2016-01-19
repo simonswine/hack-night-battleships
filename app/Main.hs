@@ -317,13 +317,14 @@ showGame game myName =
     otherName = getOtherPlayerName myName game
     otherBoard = getPlayerBoard otherName game
   in
-    BS.intercalate "\n\n"
-      [ showBoard myBoard True
-      , showBoard otherBoard False
-      ]
+    BS.intercalate "\n" $
+      zipWith (\myRow otherRow -> myRow <> "    " <> otherRow)
+        (showBoardRows myBoard True)
+        (showBoardRows otherBoard False)
 
-showBoard :: Board -> Bool -> BS.ByteString
-showBoard board isOwner =
+
+showBoardRows :: Board -> Bool -> [BS.ByteString]
+showBoardRows board isOwner =
   let squareLines =
         map (\i -> map (\j -> case Map.lookup (i,j) board of
                            Just square -> showSquare square isOwner
@@ -332,7 +333,7 @@ showBoard board isOwner =
                        [0..boardSize-1])
             [0..boardSize-1]
   in
-    BS.intercalate "\n" (map (BS.intercalate " ") squareLines)
+    map (BS.intercalate " ") squareLines
 
 switchPlayer :: Game -> Game
 switchPlayer game =

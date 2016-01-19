@@ -19,25 +19,15 @@ Type /help to list commands.                            | Type /help to list com
 *** Matt has connected                                  | *** Chris has connected
 *** Chris has connected                                 | *** let the game begin!
 *** let the game begin!                                 | To play: Chris
-To play: Chris                                          | + + . +
-+ + . +                                                 | . . . +
-. . . +                                                 | . . + .
-. . + .                                                 | . . + .
-. . + .                                                 | 
-                                                        | ? ? ? ?
-? ? ? ?                                                 | ? ? ? ?
-? ? ? ?                                                 | ? ? ? ?
-? ? ? ?                                                 | ? ? ? ?
-? ? ? ?                                                 | /fire 1 2
+To play: Chris                                          | + + . +    ? ? ? ?
++ + . +    ? ? ? ?                                      | . . . +    ? ? ? ?
+. . . +    ? ? ? ?                                      | . . + .    ? ? ? ?
+. . + .    ? ? ? ?                                      | . . + .    ? ? ? ?
+. . + .    ? ? ? ?                                      | /fire 1 2
 *** Chris fired at (1, 2). It's a hit!                  | *** Chris fired at (1, 2). It's a hit!
 To play: Matt                                           | To play: Matt
-+ x . +                                                 | + + . +
-. . . +                                                 | . . . +
-. . + .                                                 | . . + .
-. . + .                                                 | . . + .
-                                                        | 
-? ? ? ?                                                 | ? x ? ?
-? ? ? ?                                                 | ? ? ? ?
-? ? ? ?                                                 | ? ? ? ?
-? ? ? ?                                                 | ? ? ? ?
++ x . +    ? ? ? ?                                      | + + . +    ? x ? ?
+. . . +    ? ? ? ?                                      | . . . +    ? ? ? ?
+. . + .    ? ? ? ?                                      | . . + .    ? ? ? ?
+. . + .    ? ? ? ?                                      | . . + .    ? ? ? ?
 ```
