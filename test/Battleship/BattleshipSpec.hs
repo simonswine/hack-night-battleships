@@ -10,17 +10,19 @@ main = hspec spec
 
 spec :: Spec
 spec = do
-  describe "battleshipLength" $ do
-    it "returns the correct length for size 1 ships" $ do
-      battleshipLength (0, 0) (0, 0) `shouldBe` (1 :: Int)
-    it "returns the correct length for size 2 ships" $ do
-      battleshipLength (0, 1) (0, 0) `shouldBe` (2 :: Int)
-    it "returns the correct length for size 4 ships" $ do
-      battleshipLength (1, 1) (1, 4) `shouldBe` (4 :: Int)
-    it "returns exception for diagonal ships" $ do
-      evaluate(battleshipLength (1, 1) (2, 2)) `shouldThrow` anyException
-
   describe "newRandomBattleship" $ do
     it "returns random numbers" $ do
-      battleshipLength x `shouldBe` 5
-      where x = newRandomBattleship 10 5 $ mkStdGen 1328
+      let ship = fst $ newRandomBattleship 10 5 $ mkStdGen 1328
+      (size ship) `shouldBe` 5
+      (position ship) `shouldBe` (3,4)
+      (horizontal ship) `shouldBe` False
+  describe "positionsBattleship" $ do
+    it "returns single position for one size ship" $ do
+      let ship = newBattleship 1 (0,0) True
+      positionsBattleship ship `shouldBe` [(0,0)]
+    it "returns single position for 4-size ships horiz" $ do
+      let ship = newBattleship 3 (0,0) True
+      positionsBattleship ship `shouldBe` [(0,0),(0,1),(0,2)]
+    it "returns single position for 4-size ships vert" $ do
+      let ship = newBattleship 3 (0,0) False
+      positionsBattleship ship `shouldBe` [(0,0),(1,0),(2,0)]
