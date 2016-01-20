@@ -3,6 +3,7 @@ module Battleship.BattleshipSpec (main, spec) where
 import Test.Hspec
 import Control.Exception
 import Battleship.Battleship
+import System.Random
 
 main :: IO ()
 main = hspec spec
@@ -19,3 +20,7 @@ spec = do
     it "returns exception for diagonal ships" $ do
       evaluate(battleshipLength (1, 1) (2, 2)) `shouldThrow` anyException
 
+  describe "newRandomBattleship" $ do
+    it "returns random numbers" $ do
+      battleshipLength x `shouldBe` 5
+      where x = newRandomBattleship 10 5 $ mkStdGen 1328
